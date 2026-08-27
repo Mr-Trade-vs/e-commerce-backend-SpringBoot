@@ -1,4 +1,4 @@
-package com.shopnow.demo.model;
+package com.shopnow.demo.dto;
 
 public class CostumerDTO {
 

@@ -1,8 +1,12 @@
-package com.shopnow.demo.model;
+package com.shopnow.demo.service;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+
+import com.shopnow.demo.dto.ProductDTO;
+import com.shopnow.demo.model.Product;
+import com.shopnow.demo.repository.ProductStore;
 
 @Service
 public class ProductService {
@@ -11,6 +15,13 @@ public class ProductService {
 
     public ProductService(ProductStore repositoryProducts) {
         this.repositoryProducts = repositoryProducts;
+    }
+
+    public Product addProduct(ProductDTO product) {
+        Product save = new Product(null, product.getName(), product.getUnitaryPrice(), product.getStock());
+        save = idGeneration(save);
+        repositoryProducts.save(save);
+        return save;
     }
 
     private Product idGeneration(Product product) {
@@ -25,6 +36,10 @@ public class ProductService {
         String idProduct = lastProduct.get().getId();
 
         int updateId = Integer.parseInt(idProduct.substring(1));
+        updateId++;
+
+        product.setId(String.format("A%04d", updateId));
+        return product;
 
     }
     

@@ -1,8 +1,5 @@
 package com.shopnow.demo.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -14,14 +11,12 @@ public class Costumer {
     private String name;
     private String mail;
     private String phone;
-    private List<Product> shoppingCart;
     
     public Costumer(String id, String name, String mail, String phone) {
         this.id = id;
         this.name = name;
         this.mail = mail;
         this.phone = phone;
-        this.shoppingCart = new ArrayList<Product>();
     }
 
     public String getId() {
@@ -54,14 +49,6 @@ public class Costumer {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public List<Product> getShoppingCart() {
-        return shoppingCart;
-    }
-
-    public void setShoppingCart(List<Product> shoppingCart) {
-        this.shoppingCart = shoppingCart;
     }
 
 }
