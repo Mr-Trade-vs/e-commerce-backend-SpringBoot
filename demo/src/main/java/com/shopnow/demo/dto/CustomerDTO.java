@@ -1,12 +1,12 @@
 package com.shopnow.demo.dto;
 
-public class CostumerDTO {
+public class CustomerDTO {
 
     private String name;
     private String mail;
     private String phone;
     
-    public CostumerDTO(String name, String mail, String phone) {
+    public CustomerDTO(String name, String mail, String phone) {
         this.name = name;
         this.mail = mail;
         this.phone = phone;
