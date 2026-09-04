@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.shopnow.demo.dto.ProductDTO;
 import com.shopnow.demo.model.Product;
-import com.shopnow.demo.repository.interf.IProductStore;
+import com.shopnow.demo.repository.IProductStore;
 import com.shopnow.demo.service.interf.IProductService;
 
 @Service

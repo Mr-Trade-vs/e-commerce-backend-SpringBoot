@@ -15,12 +15,12 @@ public class Order {
     private Product product;
     @ManyToOne
     @JoinColumn(name="costumer_id")
-    private Costumer costumer;
+    private Customer costumer;
     private int quantity;
     private double totalToPay;
     
 
-    public Order(String idOrder, Product product, Costumer costumer, int quantity, double totalToPay) {
+    public Order(String idOrder, Product product, Customer costumer, int quantity, double totalToPay) {
         this.idOrder = idOrder;
         this.product = product;
         this.costumer = costumer;
@@ -47,11 +47,11 @@ public class Order {
         this.product = product;
     }
 
-    public Costumer getCostumer() {
+    public Customer getCostumer() {
         return costumer;
     }
 
-    public void setCostumer(Costumer costumer) {
+    public void setCostumer(Customer costumer) {
         this.costumer = costumer;
     }
 

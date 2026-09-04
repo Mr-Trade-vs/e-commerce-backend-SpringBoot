@@ -1,4 +1,4 @@
-package com.shopnow.demo.repository.interf;
+package com.shopnow.demo.repository;
 
 import java.util.Optional;
 
