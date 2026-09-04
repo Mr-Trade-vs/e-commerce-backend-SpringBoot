@@ -1,4 +1,4 @@
-package com.shopnow.demo.repository;
+package com.shopnow.demo.repository.interf;
 
 import java.util.Optional;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.shopnow.demo.model.Product;
 
 @Repository
-public interface ProductStore extends JpaRepository<Product, String> {
+public interface IProductStore extends JpaRepository<Product, String> {
 
     Optional<Product> findTopByOrderByIdDesc();
     

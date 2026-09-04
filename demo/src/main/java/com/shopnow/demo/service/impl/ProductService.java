@@ -1,4 +1,4 @@
-package com.shopnow.demo.service;
+package com.shopnow.demo.service.impl;
 
 import java.util.Optional;
 
@@ -6,17 +6,19 @@ import org.springframework.stereotype.Service;
 
 import com.shopnow.demo.dto.ProductDTO;
 import com.shopnow.demo.model.Product;
-import com.shopnow.demo.repository.ProductStore;
+import com.shopnow.demo.repository.interf.IProductStore;
+import com.shopnow.demo.service.interf.IProductService;
 
 @Service
-public class ProductService {
+public class ProductService implements IProductService {
 
-    private final ProductStore repositoryProducts;
+    private final IProductStore repositoryProducts;
 
-    public ProductService(ProductStore repositoryProducts) {
+    public ProductService(IProductStore repositoryProducts) {
         this.repositoryProducts = repositoryProducts;
     }
 
+    @Override
     public Product addProduct(ProductDTO product) {
         Product save = new Product(null, product.getName(), product.getUnitaryPrice(), product.getStock());
         save = idGeneration(save);

@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shopnow.demo.dto.ProductDTO;
 import com.shopnow.demo.model.Product;
-import com.shopnow.demo.service.ProductService;
+import com.shopnow.demo.service.interf.IProductService;
 
 @RestController
 @RequestMapping("/products")
 public class ControllerProducts {
 
-    private ProductService productService;
+    private IProductService productService;
 
-    public ControllerProducts(ProductService productManagment) {
+    public ControllerProducts(IProductService productManagment) {
         this.productService = productManagment;
     }
 
