@@ -3,11 +3,13 @@ package com.shopnow.demo.dto;
 public class OrderDTO {
     
     private int quantity;
-    private double totalToPay;
-    
-    public OrderDTO(int quantity, double totalToPay) {
+    private String idProduct;
+    private String idCustomer;
+
+    public OrderDTO(int quantity, String idProduct, String idCustomer) {
         this.quantity = quantity;
-        this.totalToPay = totalToPay;
+        this.idProduct = idProduct;
+        this.idCustomer = idCustomer;
     }
 
     public int getQuantity() {
@@ -18,11 +20,20 @@ public class OrderDTO {
         this.quantity = quantity;
     }
 
-    public double getTotalToPay() {
-        return totalToPay;
+    public String getIdProduct() {
+        return idProduct;
     }
 
-    public void setTotalToPay(double totalToPay) {
-        this.totalToPay = totalToPay;
+    public void setIdProduct(String idProduct) {
+        this.idProduct = idProduct;
     }
+
+    public String getIdCustomer() {
+        return idCustomer;
+    }
+
+    public void setIdCustomer(String idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+
 }

@@ -26,6 +26,17 @@ public class ProductService implements IProductService {
         return save;
     }
 
+    @Override
+    public Product findProduct(String id) {
+
+        Optional<Product> productFound = repositoryProducts.findById(id);
+
+        Product product = productFound.orElse(null);
+        return product;
+        
+    }
+
+    //Intern Logic to solve features
     private Product idGeneration(Product product) {
 
         Optional<Product> lastProduct = repositoryProducts.findTopByOrderByIdDesc();
