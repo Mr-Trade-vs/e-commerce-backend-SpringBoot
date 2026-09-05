@@ -41,6 +41,9 @@ public class OrderService implements IOrderService{
 
         Order orderToAdd = new Order(null, foundProduct, foundCustomer, orderDTO.getQuantity(), totalToPay);
         orderToAdd = idGeneration(orderToAdd);
+        if (orderToAdd == null) return null;
+        
+        orderRepository.save(orderToAdd);
         return orderToAdd;
         
     }
