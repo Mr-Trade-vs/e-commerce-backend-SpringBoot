@@ -32,6 +32,16 @@ public class CustomerService implements ICustomerService {
         return customerToAdd;
     }
 
+    @Override
+    public Customer findCustomer(String id) {
+
+        Optional<Customer> foundCustomer = customerRepository.findById(id);
+        Customer customer = foundCustomer.orElse(null);
+
+        return customer;
+
+    }
+
     private Customer idGeneration(Customer customerNeedId) {
 
         Optional<Customer> lastCustomer = customerRepository.findTopByOrderByIdDesc();

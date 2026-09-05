@@ -7,4 +7,6 @@ public interface IProductService {
 
     Product addProduct(ProductDTO product);
     
+    Product findProduct(String id);
+
 }

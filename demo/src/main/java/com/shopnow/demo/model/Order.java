@@ -14,16 +14,16 @@ public class Order {
     @JoinColumn(name="product_id")
     private Product product;
     @ManyToOne
-    @JoinColumn(name="costumer_id")
-    private Customer costumer;
+    @JoinColumn(name="customer_id")
+    private Customer customer;
     private int quantity;
     private double totalToPay;
     
 
-    public Order(String idOrder, Product product, Customer costumer, int quantity, double totalToPay) {
+    public Order(String idOrder, Product product, Customer customer, int quantity, double totalToPay) {
         this.idOrder = idOrder;
         this.product = product;
-        this.costumer = costumer;
+        this.customer = customer;
         this.quantity = quantity;
         this.totalToPay = totalToPay;
     }
@@ -47,12 +47,12 @@ public class Order {
         this.product = product;
     }
 
-    public Customer getCostumer() {
-        return costumer;
+    public Customer getcustomer() {
+        return customer;
     }
 
-    public void setCostumer(Customer costumer) {
-        this.costumer = costumer;
+    public void setcustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public int getQuantity() {
