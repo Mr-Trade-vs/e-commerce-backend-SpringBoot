@@ -39,13 +39,31 @@ public class OrderService implements IOrderService{
         
         double totalToPay = orderDTO.getQuantity() * foundProduct.getUnitaryPrice();
 
-        Order orderToAdd = new Order(null, foundProduct, foundCustomer, orderDTO.getQuantity(), totalToPay);
+        Order orderToAdd = new Order(null, foundProduct, foundCustomer, orderDTO.getQuantity(), totalToPay, false);
         orderToAdd = idGeneration(orderToAdd);
         if (orderToAdd == null) return null;
         
         orderRepository.save(orderToAdd);
         return orderToAdd;
         
+    }
+
+    @Override
+    public Order doPurchase(String id) {
+        
+        Optional<Order> purchaseFound = orderRepository.findById(id);
+        Order purchaseToDo = purchaseFound.orElse(null);
+
+        if (purchaseToDo == null) return null;
+
+        if (!canPurchase(purchaseToDo.getProduct().getStock(), purchaseToDo.getQuantity())) return null;
+
+        productService.updateAfterPurhaseDone(purchaseToDo.getProduct(), purchaseToDo.getQuantity());
+        purchaseToDo.setPurchaseDone(true);
+
+        orderRepository.save(purchaseToDo);
+        return purchaseToDo;
+
     }
 
     private Order idGeneration(Order orderToUpdate) {

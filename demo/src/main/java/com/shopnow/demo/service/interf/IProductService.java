@@ -9,4 +9,6 @@ public interface IProductService {
     
     Product findProduct(String id);
 
+    void updateAfterPurhaseDone(Product product, int quantityPurchased);
+
 }

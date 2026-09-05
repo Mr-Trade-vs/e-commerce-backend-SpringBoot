@@ -28,4 +28,12 @@ public class ControllerOrder {
         return ResponseEntity.ok(orderWasAdded);
         
     }
+
+    @PostMapping("do")
+    public ResponseEntity<Order> doPurchase(@RequestBody String idOrder) {
+
+
+        return ResponseEntity.ok(null);
+
+    }
 }

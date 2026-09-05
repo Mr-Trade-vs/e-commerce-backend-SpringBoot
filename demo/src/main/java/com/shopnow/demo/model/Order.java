@@ -18,14 +18,16 @@ public class Order {
     private Customer customer;
     private int quantity;
     private double totalToPay;
-    
+    private boolean purchaseDone;
 
-    public Order(String idOrder, Product product, Customer customer, int quantity, double totalToPay) {
+    public Order(String idOrder, Product product, Customer customer, int quantity, double totalToPay,
+            boolean purchaseDone) {
         this.idOrder = idOrder;
         this.product = product;
         this.customer = customer;
         this.quantity = quantity;
         this.totalToPay = totalToPay;
+        this.purchaseDone = purchaseDone;
     }
 
     public Order() {
@@ -69,6 +71,22 @@ public class Order {
 
     public void setTotalToPay(double totalToPay) {
         this.totalToPay = totalToPay;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public boolean isPurchaseDone() {
+        return purchaseDone;
+    }
+
+    public void setPurchaseDone(boolean purchaseDone) {
+        this.purchaseDone = purchaseDone;
     }
 
 }

@@ -36,6 +36,16 @@ public class ProductService implements IProductService {
         
     }
 
+    @Override
+    public void updateAfterPurhaseDone(Product product, int quantityPurchased) {
+        
+        if (product != null) {
+            product.setStock(product.getStock()-quantityPurchased);
+            repositoryProducts.save(product);
+        }
+        
+    }
+
     //Intern Logic to solve features
     private Product idGeneration(Product product) {
 

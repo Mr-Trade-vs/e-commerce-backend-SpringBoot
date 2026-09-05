@@ -7,4 +7,6 @@ public interface IOrderService {
     
     Order makePurchase(OrderDTO orderDTO);
 
+    Order doPurchase(String id);
+
 }
